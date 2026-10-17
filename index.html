@@ -11,9 +11,8 @@
 html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;background:#050505;color:#fff}
 body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(139,92,246,.25),transparent),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(59,130,246,.15),transparent),#050505;padding:20px}
 .brand{position:fixed;top:24px;left:0;right:0;text-align:center;z-index:10;pointer-events:none}
-.brand h1{font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#fff,#c4b5fd,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.brand h1{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#fff,#c4b5fd,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .brand p{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:4px}
-.github-btn{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:8px;padding:12px 22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:999px;color:#fff;font-size:.9rem;text-decoration:none;backdrop-filter:blur(20px)}
 .phone{position:relative;width:var(--phone-w);height:var(--phone-h);background:#1c1c1e;border-radius:var(--radius);box-shadow:0 0 0 3px #2c2c2e,0 0 0 6px #3a3a3c,0 25px 80px rgba(0,0,0,.7);overflow:hidden}
 .btn-vol-up,.btn-vol-down,.btn-power,.btn-action{position:absolute;background:#2c2c2e;border-radius:4px;z-index:5}
 .btn-vol-up{left:-3px;top:160px;width:4px;height:32px}.btn-vol-down{left:-3px;top:210px;width:4px;height:55px}.btn-action{left:-3px;top:120px;width:4px;height:28px}.btn-power{right:-3px;top:180px;width:4px;height:70px}
@@ -22,38 +21,42 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 .dynamic-island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:var(--island-w);height:var(--island-h);background:#000;border-radius:22px;z-index:100;display:flex;align-items:center;justify-content:center;gap:8px}
 .dynamic-island .cam{width:12px;height:12px;background:#1a1a1a;border-radius:50%}.dynamic-island .sensor{width:8px;height:8px;background:#111;border-radius:50%}
 .status-bar{position:absolute;top:0;left:0;right:0;height:var(--safe-top);padding:14px 28px 0;display:flex;justify-content:space-between;align-items:flex-start;z-index:50;font-size:15px;font-weight:600}
-.status-right{display:flex;align-items:center;gap:6px}.battery{width:25px;height:12px;border:1.5px solid rgba(255,255,255,.9);border-radius:3px;position:relative;padding:1px}.battery::after{content:"";position:absolute;right:-3px;top:3px;width:1.5px;height:5px;background:rgba(255,255,255,.9);border-radius:0 1px 1px 0}.battery-level{height:100%;width:80%;background:#fff;border-radius:1px}
-.home{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding-top:calc(var(--safe-top) + 12px);padding-bottom:8px}
-.app-grid{flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:min-content;gap:18px 8px;padding:8px 22px 0;overflow-y:auto;scrollbar-width:none}
-.app{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .15s}.app:active{transform:scale(.88)}
-.app-icon{width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.status-right{display:flex;align-items:center;gap:6px}.battery{width:25px;height:12px;border:1.5px solid rgba(255,255,255,.9);border-radius:3px;position:relative;padding:1px}.battery::after{content:"";position:absolute;right:-3px;top:3px;width:1.5px;height:5px;background:rgba(255,255,255,.9)}.battery-level{height:100%;width:80%;background:#fff;border-radius:1px}
+.home{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding-top:calc(var(--safe-top)+12px);padding-bottom:8px}
+.pages-wrap{flex:1;overflow:hidden;position:relative}
+.pages-track{display:flex;height:100%;transition:transform .35s cubic-bezier(.25,.8,.25,1);will-change:transform}
+.app-page{min-width:100%;height:100%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(6,min-content);gap:16px 6px;padding:10px 20px 0;align-content:start;box-sizing:border-box}
+.app{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;user-select:none;transition:transform .15s}.app:active{transform:scale(.88)}
+.app-icon{width:60px;height:60px;border-radius:13.5px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 3px 10px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.22);position:relative;overflow:hidden}
+.app-icon::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.08) 38%,transparent 58%);pointer-events:none}
 .app-label{font-size:11px;font-weight:500;color:#fff;text-align:center;max-width:70px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.icon-mohta{background:linear-gradient(135deg,#c084fc,#a78bfa)}.icon-nono{background:linear-gradient(135deg,#f472b6,#e879f9)}.icon-noinc{background:linear-gradient(135deg,#38bdf8,#0ea5e9)}.icon-tex{background:linear-gradient(135deg,#fbbf24,#f59e0b)}.icon-goft{background:linear-gradient(135deg,#2dd4bf,#14b8a6)}.icon-gushi{background:linear-gradient(135deg,#a855f7,#6366f1)}.icon-deep{background:linear-gradient(135deg,#06b6d4,#3b82f6)}.icon-deepo{background:linear-gradient(135deg,#818cf8,#6366f1)}.icon-back{background:linear-gradient(135deg,#22c55e,#16a34a)}.icon-hiop{background:linear-gradient(135deg,#0ea5e9,#0284c7)}.icon-vert{background:linear-gradient(135deg,#ec4899,#f43f5e)}.icon-note{background:linear-gradient(135deg,#64748b,#94a3b8)}.icon-ad{background:linear-gradient(135deg,#e11d48,#be123c)}.icon-real{background:linear-gradient(135deg,#84cc16,#65a30d)}.icon-depag{background:linear-gradient(135deg,#f43f5e,#e11d48)}.icon-v3{background:linear-gradient(135deg,#14b8a6,#0d9488)}.icon-1204{background:linear-gradient(135deg,#a78bfa,#7c3aed)}.icon-extra{background:linear-gradient(135deg,#374151,#1f2937)}
+.icon-mohta{background:linear-gradient(145deg,#c084fc,#a78bfa)}.icon-nono{background:linear-gradient(145deg,#f472b6,#e879f9)}.icon-noinc{background:linear-gradient(145deg,#38bdf8,#0ea5e9)}.icon-tex{background:linear-gradient(145deg,#fbbf24,#f59e0b)}.icon-goft{background:linear-gradient(145deg,#2dd4bf,#14b8a6)}.icon-gushi{background:linear-gradient(145deg,#a855f7,#6366f1)}.icon-deep{background:linear-gradient(145deg,#06b6d4,#3b82f6)}.icon-deepo{background:linear-gradient(145deg,#818cf8,#6366f1)}.icon-back{background:linear-gradient(145deg,#22c55e,#16a34a)}.icon-hiop{background:linear-gradient(145deg,#0ea5e9,#0284c7)}.icon-vert{background:linear-gradient(145deg,#ec4899,#f43f5e)}.icon-note{background:linear-gradient(145deg,#64748b,#94a3b8)}.icon-ad{background:linear-gradient(145deg,#e11d48,#be123c)}.icon-real{background:linear-gradient(145deg,#84cc16,#65a30d)}.icon-depag{background:linear-gradient(145deg,#f43f5e,#e11d48)}.icon-v3{background:linear-gradient(145deg,#14b8a6,#0d9488)}.icon-1204{background:linear-gradient(145deg,#a78bfa,#7c3aed)}
+.icon-c1{background:linear-gradient(145deg,#007AFF,#0051D4)}.icon-c2{background:linear-gradient(145deg,#34C759,#248A3D)}.icon-c3{background:linear-gradient(145deg,#FF9500,#E68600)}.icon-c4{background:linear-gradient(145deg,#FF2D55,#D70015)}.icon-c5{background:linear-gradient(145deg,#AF52DE,#8944AB)}.icon-c6{background:linear-gradient(145deg,#5856D6,#3634A3)}.icon-c7{background:linear-gradient(145deg,#FF3B30,#D70015)}.icon-c8{background:linear-gradient(145deg,#5AC8FA,#32ADE6)}.icon-c9{background:linear-gradient(145deg,#FFCC00,#F5A623)}.icon-c10{background:linear-gradient(145deg,#64D2FF,#00C7BE)}.icon-c11{background:linear-gradient(145deg,#BF5AF2,#9B3DDB)}.icon-c12{background:linear-gradient(145deg,#FF6482,#FF375F)}.icon-c13{background:linear-gradient(145deg,#30D158,#248A3D)}.icon-c14{background:linear-gradient(145deg,#FF9F0A,#FF8C00)}.icon-c15{background:linear-gradient(145deg,#0A84FF,#0066CC)}.icon-c16{background:linear-gradient(145deg,#FF453A,#D70015)}.icon-c17{background:linear-gradient(145deg,#32D74B,#28A745)}.icon-c18{background:linear-gradient(145deg,#64D2FF,#5AC8FA)}.icon-c19{background:linear-gradient(145deg,#BF5AF2,#AF52DE)}.icon-c20{background:linear-gradient(145deg,#FFD60A,#FFCC00)}.icon-c21{background:linear-gradient(145deg,#FF375F,#FF2D55)}.icon-c22{background:linear-gradient(145deg,#AC8E68,#8E733A)}.icon-c23{background:linear-gradient(145deg,#8E8E93,#636366)}.icon-c24{background:linear-gradient(145deg,#FF9500,#FF6B00)}.icon-c25{background:linear-gradient(145deg,#30B0C7,#1A8A9E)}.icon-c26{background:linear-gradient(145deg,#FF2D55,#C41E3A)}.icon-c27{background:linear-gradient(145deg,#5E5CE6,#4B4ACF)}.icon-c28{background:linear-gradient(145deg,#FF9F0A,#E68600)}.icon-c29{background:linear-gradient(145deg,#34C759,#30D158)}.icon-c30{background:linear-gradient(145deg,#007AFF,#5AC8FA)}
 .page-dots{display:flex;justify-content:center;gap:7px;padding:10px 0 6px}.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3)}.dot.active{background:#fff}
-.dock{margin:0 16px 10px;height:var(--dock-h);background:rgba(255,255,255,.12);backdrop-filter:blur(40px);border-radius:32px;display:flex;align-items:center;justify-content:space-evenly;padding:0 12px;border:1px solid rgba(255,255,255,.08)}.dock .app{gap:0}.dock .app-icon{width:58px;height:58px;border-radius:14px}.dock .app-label{display:none}
+.dock{margin:0 16px 10px;height:var(--dock-h);background:rgba(255,255,255,.12);backdrop-filter:blur(40px);border-radius:32px;display:flex;align-items:center;justify-content:space-evenly;padding:0 12px;border:1px solid rgba(255,255,255,.08)}.dock .app{gap:0}.dock .app-icon{width:54px;height:54px;border-radius:12px}.dock .app-label{display:none}
 .home-indicator{width:134px;height:5px;background:#fff;border-radius:3px;margin:0 auto 8px;opacity:.9}
 .sidebar-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:200;opacity:0;visibility:hidden;transition:.3s}.sidebar-overlay.open{opacity:1;visibility:visible}
 .sidebar{position:absolute;top:0;right:0;width:78%;max-width:300px;height:100%;background:rgba(28,28,30,.92);backdrop-filter:blur(40px);z-index:210;transform:translateX(105%);transition:transform .38s;border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;padding-top:calc(var(--safe-top)+8px)}.sidebar.open{transform:translateX(0)}
 .sidebar-header{padding:12px 20px 20px;display:flex;align-items:center;justify-content:space-between}.sidebar-close{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:18px;cursor:pointer}
-.menu-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;color:#fff;font-size:16px;cursor:pointer;margin-bottom:2px}.menu-item:hover{background:rgba(255,255,255,.08)}.menu-section{font-size:13px;font-weight:600;color:rgba(255,255,255,.4);padding:18px 14px 8px}
+.menu-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;color:#fff;font-size:16px;cursor:pointer}.menu-item:hover{background:rgba(255,255,255,.08)}.menu-section{font-size:13px;color:rgba(255,255,255,.4);padding:18px 14px 8px}
 .sidebar-trigger{position:absolute;top:50%;right:0;transform:translateY(-50%);width:6px;height:80px;background:rgba(255,255,255,.15);border-radius:4px 0 0 4px;z-index:60;cursor:pointer}
 .modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:300;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:flex-end;justify-content:center}.modal-overlay.open{opacity:1;visibility:visible}
 .modal{width:100%;max-height:70%;background:#1c1c1e;border-radius:28px 28px 0 0;padding:12px 20px 40px;transform:translateY(100%);transition:transform .38s}.modal-overlay.open .modal{transform:translateY(0)}
-.modal-handle{width:40px;height:5px;background:rgba(255,255,255,.25);border-radius:3px;margin:0 auto 18px}.modal-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px}.modal h3{text-align:center;font-size:1.3rem;margin-bottom:6px}.modal p{text-align:center;color:rgba(255,255,255,.55);font-size:.95rem;line-height:1.5;margin-bottom:22px;white-space:pre-line}.modal-actions{display:flex;gap:12px}.modal-btn{flex:1;padding:14px;border-radius:14px;border:none;font-size:16px;font-weight:600;cursor:pointer}.modal-btn.primary{background:var(--accent);color:#fff}.modal-btn.secondary{background:rgba(255,255,255,.1);color:#fff}
-@media(max-width:440px){body{padding:0}.phone{width:100vw;height:100vh;border-radius:0;box-shadow:none}.screen{inset:0;border-radius:0}.brand,.github-btn{display:none}.btn-vol-up,.btn-vol-down,.btn-power,.btn-action{display:none}}
+.modal-handle{width:40px;height:5px;background:rgba(255,255,255,.25);border-radius:3px;margin:0 auto 18px}.modal-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px}.modal h3{text-align:center;font-size:1.3rem;margin-bottom:6px}.modal p{text-align:center;color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:22px;white-space:pre-line}.modal-actions{display:flex;gap:12px}.modal-btn{flex:1;padding:14px;border-radius:14px;border:none;font-size:16px;font-weight:600;cursor:pointer}.modal-btn.primary{background:var(--accent);color:#fff}.modal-btn.secondary{background:rgba(255,255,255,.1);color:#fff}
+@media(max-width:440px){body{padding:0}.phone{width:100vw;height:100vh;border-radius:0;box-shadow:none}.screen{inset:0;border-radius:0}.brand{display:none}.btn-vol-up,.btn-vol-down,.btn-power,.btn-action{display:none}}
 </style>
 </head>
 <body>
-<div class="brand"><h1>Grok-Rip</h1><p>مجموعه ابزارهای ایزوله · سبک iPhone 16 Pro Max</p></div>
+<div class="brand"><h1>Grok-Rip</h1><p>iPhone 16 Pro Max Style</p></div>
 <div class="phone">
   <div class="btn-action"></div><div class="btn-vol-up"></div><div class="btn-vol-down"></div><div class="btn-power"></div>
   <div class="screen">
     <div class="wallpaper"></div>
     <div class="dynamic-island"><div class="sensor"></div><div class="cam"></div></div>
-    <div class="status-bar"><div class="status-left" id="clock">12:10</div><div class="status-right"><div class="battery"><div class="battery-level"></div></div></div></div>
+    <div class="status-bar"><div class="status-left" id="clock">12:18</div><div class="status-right"><div class="battery"><div class="battery-level"></div></div></div></div>
     <div class="home">
-      <div class="app-grid" id="appGrid"></div>
-      <div class="page-dots"><div class="dot active"></div><div class="dot"></div></div>
+      <div class="pages-wrap" id="pagesWrap"><div class="pages-track" id="pagesTrack"></div></div>
+      <div class="page-dots" id="pageDots"></div>
       <div class="dock" id="dock"></div>
       <div class="home-indicator"></div>
     </div>
@@ -62,7 +65,6 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header"><h2>Grok-Rip</h2><button class="sidebar-close" id="sidebarClose">✕</button></div>
       <div class="sidebar-menu" id="sidebarMenu"><div class="menu-section">ابزارها</div></div>
-      <div style="padding:16px;font-size:12px;color:rgba(255,255,255,.4);text-align:center">Grok-Rip · 2026</div>
     </div>
     <div class="modal-overlay" id="modalOverlay">
       <div class="modal">
@@ -79,78 +81,76 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
   </div>
 </div>
 <script>
-const apps = [
-  {id:"mohta",name:"Content Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html",desc:"استودیوی تولید محتوا"},
-  {id:"nono",name:"Digital Future",icon:"🚀",cls:"icon-nono",file:"nononick-onefile.html",desc:"لندینگ آینده‌نگر"},
-  {id:"nono2",name:"Nononick Single",icon:"💜",cls:"icon-nono",file:"nononick-single-file.html",desc:"نسخه تک‌فایل"},
-  {id:"noinc",name:"Architecture",icon:"🏛️",cls:"icon-noinc",file:"noinc.html",desc:"معماری دیجیتال"},
-  {id:"tex",name:"Tex Editor",icon:"✍️",cls:"icon-tex",file:"Tex_edit.html",desc:"ادیتور AI"},
-  {id:"texq",name:"Tex Qwen",icon:"📄",cls:"icon-tex",file:"Tex_Qwen_Editor.html",desc:"ادیتور Qwen"},
-  {id:"goft",name:"HTML Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html",desc:"فورج HTML"},
-  {id:"gushi",name:"HTML Forge+",icon:"📦",cls:"icon-gushi",file:"gushi.html",desc:"فورج پیشرفته"},
-  {id:"deep",name:"Immersive",icon:"🌌",cls:"icon-deep",file:"deep3.html",desc:"استودیوی immersive"},
-  {id:"deepo",name:"Nebula Deep",icon:"🌠",cls:"icon-deepo",file:"deepo.html",desc:"Nebula"},
-  {id:"back",name:"Backend Forge",icon:"⚙️",cls:"icon-back",file:"back_qwen.html",desc:"سازنده بک‌اند"},
-  {id:"hiop",name:"Backend+",icon:"🔧",cls:"icon-hiop",file:"hiop.html",desc:"فورج بک‌اند"},
-  {id:"vert",name:"Vert Builder",icon:"📱",cls:"icon-vert",file:"vert.html",desc:"بیلدر دستگاه"},
-  {id:"note",name:"Notes",icon:"📓",cls:"icon-note",file:"note.html",desc:"ادیتور متن"},
-  {id:"ad",name:"Ad Studio",icon:"📢",cls:"icon-ad",file:"ad.html",desc:"ساخت تبلیغات"},
-  {id:"real",name:"Real",icon:"🎯",cls:"icon-real",file:"real.html",desc:"پروتوتایپ"},
-  {id:"depag",name:"Depag",icon:"📑",cls:"icon-depag",file:"depag.html",desc:"صفحه‌بندی"},
-  {id:"v3",name:"V3",icon:"⚡",cls:"icon-v3",file:"v3.html",desc:"نسخه سوم"},
-  {id:"1204",name:"1204",icon:"🔢",cls:"icon-1204",file:"1204.html",desc:"ابزار 1204"},
-  // === 30 editable icons — فقط name را بعد از آپلود عوض کن ===
-  {id:"icon1",name:"Icon 1",icon:"1️⃣",cls:"icon-extra",file:"icon1.html",desc:"قابل ویرایش"},
-  {id:"icon2",name:"Icon 2",icon:"2️⃣",cls:"icon-extra",file:"icon2.html",desc:"قابل ویرایش"},
-  {id:"icon3",name:"Icon 3",icon:"3️⃣",cls:"icon-extra",file:"icon3.html",desc:"قابل ویرایش"},
-  {id:"icon4",name:"Icon 4",icon:"4️⃣",cls:"icon-extra",file:"icon4.html",desc:"قابل ویرایش"},
-  {id:"icon5",name:"Icon 5",icon:"5️⃣",cls:"icon-extra",file:"icon5.html",desc:"قابل ویرایش"},
-  {id:"icon6",name:"Icon 6",icon:"6️⃣",cls:"icon-extra",file:"icon6.html",desc:"قابل ویرایش"},
-  {id:"icon7",name:"Icon 7",icon:"7️⃣",cls:"icon-extra",file:"icon7.html",desc:"قابل ویرایش"},
-  {id:"icon8",name:"Icon 8",icon:"8️⃣",cls:"icon-extra",file:"icon8.html",desc:"قابل ویرایش"},
-  {id:"icon9",name:"Icon 9",icon:"9️⃣",cls:"icon-extra",file:"icon9.html",desc:"قابل ویرایش"},
-  {id:"icon10",name:"Icon 10",icon:"🔟",cls:"icon-extra",file:"icon10.html",desc:"قابل ویرایش"},
-  {id:"icon11",name:"Icon 11",icon:"🟦",cls:"icon-extra",file:"icon11.html",desc:"قابل ویرایش"},
-  {id:"icon12",name:"Icon 12",icon:"🟧",cls:"icon-extra",file:"icon12.html",desc:"قابل ویرایش"},
-  {id:"icon13",name:"Icon 13",icon:"🟩",cls:"icon-extra",file:"icon13.html",desc:"قابل ویرایش"},
-  {id:"icon14",name:"Icon 14",icon:"🟪",cls:"icon-extra",file:"icon14.html",desc:"قابل ویرایش"},
-  {id:"icon15",name:"Icon 15",icon:"🟫",cls:"icon-extra",file:"icon15.html",desc:"قابل ویرایش"},
-  {id:"icon16",name:"Icon 16",icon:"⬛",cls:"icon-extra",file:"icon16.html",desc:"قابل ویرایش"},
-  {id:"icon17",name:"Icon 17",icon:"⬜",cls:"icon-extra",file:"icon17.html",desc:"قابل ویرایش"},
-  {id:"icon18",name:"Icon 18",icon:"🔶",cls:"icon-extra",file:"icon18.html",desc:"قابل ویرایش"},
-  {id:"icon19",name:"Icon 19",icon:"🔷",cls:"icon-extra",file:"icon19.html",desc:"قابل ویرایش"},
-  {id:"icon20",name:"Icon 20",icon:"🔸",cls:"icon-extra",file:"icon20.html",desc:"قابل ویرایش"},
-  {id:"icon21",name:"Icon 21",icon:"🔹",cls:"icon-extra",file:"icon21.html",desc:"قابل ویرایش"},
-  {id:"icon22",name:"Icon 22",icon:"💎",cls:"icon-extra",file:"icon22.html",desc:"قابل ویرایش"},
-  {id:"icon23",name:"Icon 23",icon:"🔮",cls:"icon-extra",file:"icon23.html",desc:"قابل ویرایش"},
-  {id:"icon24",name:"Icon 24",icon:"💠",cls:"icon-extra",file:"icon24.html",desc:"قابل ویرایش"},
-  {id:"icon25",name:"Icon 25",icon:"🧿",cls:"icon-extra",file:"icon25.html",desc:"قابل ویرایش"},
-  {id:"icon26",name:"Icon 26",icon:"🪬",cls:"icon-extra",file:"icon26.html",desc:"قابل ویرایش"},
-  {id:"icon27",name:"Icon 27",icon:"💫",cls:"icon-extra",file:"icon27.html",desc:"قابل ویرایش"},
-  {id:"icon28",name:"Icon 28",icon:"⭐",cls:"icon-extra",file:"icon28.html",desc:"قابل ویرایش"},
-  {id:"icon29",name:"Icon 29",icon:"🌟",cls:"icon-extra",file:"icon29.html",desc:"قابل ویرایش"},
-  {id:"icon30",name:"Icon 30",icon:"✨",cls:"icon-extra",file:"icon30.html",desc:"قابل ویرایش"}
+const apps=[
+{id:"mohta",name:"Content Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html",desc:"استودیوی محتوا"},
+{id:"nono",name:"Digital Future",icon:"🚀",cls:"icon-nono",file:"nononick-onefile.html",desc:"لندینگ"},
+{id:"nono2",name:"Nononick",icon:"💜",cls:"icon-nono",file:"nononick-single-file.html",desc:"تک‌فایل"},
+{id:"noinc",name:"Architecture",icon:"🏛️",cls:"icon-noinc",file:"noinc.html",desc:"معماری"},
+{id:"tex",name:"Tex Editor",icon:"✍️",cls:"icon-tex",file:"Tex_edit.html",desc:"ادیتور"},
+{id:"texq",name:"Tex Qwen",icon:"📄",cls:"icon-tex",file:"Tex_Qwen_Editor.html",desc:"Qwen"},
+{id:"goft",name:"HTML Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html",desc:"فورج"},
+{id:"gushi",name:"Forge+",icon:"📦",cls:"icon-gushi",file:"gushi.html",desc:"فورج+"},
+{id:"deep",name:"Immersive",icon:"🌌",cls:"icon-deep",file:"deep3.html",desc:"immersive"},
+{id:"deepo",name:"Nebula",icon:"🌠",cls:"icon-deepo",file:"deepo.html",desc:"Nebula"},
+{id:"back",name:"Backend",icon:"⚙️",cls:"icon-back",file:"back_qwen.html",desc:"بک‌اند"},
+{id:"hiop",name:"Backend+",icon:"🔧",cls:"icon-hiop",file:"hiop.html",desc:"بک‌اند+"},
+{id:"vert",name:"Vert",icon:"📱",cls:"icon-vert",file:"vert.html",desc:"بیلدر"},
+{id:"note",name:"Notes",icon:"📓",cls:"icon-note",file:"note.html",desc:"نوت"},
+{id:"ad",name:"Ads",icon:"📢",cls:"icon-ad",file:"ad.html",desc:"تبلیغ"},
+{id:"real",name:"Real",icon:"🎯",cls:"icon-real",file:"real.html",desc:"پروتوتایپ"},
+{id:"depag",name:"Depag",icon:"📑",cls:"icon-depag",file:"depag.html",desc:"صفحه"},
+{id:"v3",name:"V3",icon:"⚡",cls:"icon-v3",file:"v3.html",desc:"V3"},
+{id:"1204",name:"1204",icon:"🔢",cls:"icon-1204",file:"1204.html",desc:"1204"},
+{id:"icon1",name:"Icon 1",icon:"📱",cls:"icon-c1",file:"icon1.html",desc:"قابل ویرایش"},
+{id:"icon2",name:"Icon 2",icon:"💬",cls:"icon-c2",file:"icon2.html",desc:"قابل ویرایش"},
+{id:"icon3",name:"Icon 3",icon:"📷",cls:"icon-c3",file:"icon3.html",desc:"قابل ویرایش"},
+{id:"icon4",name:"Icon 4",icon:"🎵",cls:"icon-c4",file:"icon4.html",desc:"قابل ویرایش"},
+{id:"icon5",name:"Icon 5",icon:"🗺️",cls:"icon-c5",file:"icon5.html",desc:"قابل ویرایش"},
+{id:"icon6",name:"Icon 6",icon:"⚙️",cls:"icon-c6",file:"icon6.html",desc:"قابل ویرایش"},
+{id:"icon7",name:"Icon 7",icon:"❤️",cls:"icon-c7",file:"icon7.html",desc:"قابل ویرایش"},
+{id:"icon8",name:"Icon 8",icon:"🌤️",cls:"icon-c8",file:"icon8.html",desc:"قابل ویرایش"},
+{id:"icon9",name:"Icon 9",icon:"📅",cls:"icon-c9",file:"icon9.html",desc:"قابل ویرایش"},
+{id:"icon10",name:"Icon 10",icon:"🕐",cls:"icon-c10",file:"icon10.html",desc:"قابل ویرایش"},
+{id:"icon11",name:"Icon 11",icon:"📧",cls:"icon-c11",file:"icon11.html",desc:"قابل ویرایش"},
+{id:"icon12",name:"Icon 12",icon:"📝",cls:"icon-c12",file:"icon12.html",desc:"قابل ویرایش"},
+{id:"icon13",name:"Icon 13",icon:"🛒",cls:"icon-c13",file:"icon13.html",desc:"قابل ویرایش"},
+{id:"icon14",name:"Icon 14",icon:"🎮",cls:"icon-c14",file:"icon14.html",desc:"قابل ویرایش"},
+{id:"icon15",name:"Icon 15",icon:"📚",cls:"icon-c15",file:"icon15.html",desc:"قابل ویرایش"},
+{id:"icon16",name:"Icon 16",icon:"🎬",cls:"icon-c16",file:"icon16.html",desc:"قابل ویرایش"},
+{id:"icon17",name:"Icon 17",icon:"💡",cls:"icon-c17",file:"icon17.html",desc:"قابل ویرایش"},
+{id:"icon18",name:"Icon 18",icon:"🔒",cls:"icon-c18",file:"icon18.html",desc:"قابل ویرایش"},
+{id:"icon19",name:"Icon 19",icon:"🌐",cls:"icon-c19",file:"icon19.html",desc:"قابل ویرایش"},
+{id:"icon20",name:"Icon 20",icon:"📊",cls:"icon-c20",file:"icon20.html",desc:"قابل ویرایش"},
+{id:"icon21",name:"Icon 21",icon:"🎨",cls:"icon-c21",file:"icon21.html",desc:"قابل ویرایش"},
+{id:"icon22",name:"Icon 22",icon:"💎",cls:"icon-c22",file:"icon22.html",desc:"قابل ویرایش"},
+{id:"icon23",name:"Icon 23",icon:"🚀",cls:"icon-c23",file:"icon23.html",desc:"قابل ویرایش"},
+{id:"icon24",name:"Icon 24",icon:"🔔",cls:"icon-c24",file:"icon24.html",desc:"قابل ویرایش"},
+{id:"icon25",name:"Icon 25",icon:"📁",cls:"icon-c25",file:"icon25.html",desc:"قابل ویرایش"},
+{id:"icon26",name:"Icon 26",icon:"🧠",cls:"icon-c26",file:"icon26.html",desc:"قابل ویرایش"},
+{id:"icon27",name:"Icon 27",icon:"⚡",cls:"icon-c27",file:"icon27.html",desc:"قابل ویرایش"},
+{id:"icon28",name:"Icon 28",icon:"🌟",cls:"icon-c28",file:"icon28.html",desc:"قابل ویرایش"},
+{id:"icon29",name:"Icon 29",icon:"🔮",cls:"icon-c29",file:"icon29.html",desc:"قابل ویرایش"},
+{id:"icon30",name:"Icon 30",icon:"✨",cls:"icon-c30",file:"icon30.html",desc:"قابل ویرایش"}
 ];
-const dockApps=[
-  {id:"mohta",name:"Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html",desc:"Content Studio"},
-  {id:"goft",name:"Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html",desc:"HTML Forge"},
-  {id:"deep",name:"Deep",icon:"🌌",cls:"icon-deep",file:"deep3.html",desc:"Immersive"},
-  {id:"back",name:"Backend",icon:"⚙️",cls:"icon-back",file:"back_qwen.html",desc:"Backend Forge"}
-];
-const grid=document.getElementById("appGrid"),dock=document.getElementById("dock");
-function createAppEl(app,isDock=false){const el=document.createElement("div");el.className="app";el.innerHTML=`<div class="app-icon ${app.cls}">${app.icon}</div>${isDock?"":`<div class="app-label">${app.name}</div>`}`;el.onclick=()=>openApp(app);return el}
-apps.forEach(a=>grid.appendChild(createAppEl(a)));
+const dockApps=[{id:"mohta",name:"Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html",desc:"Studio"},{id:"goft",name:"Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html",desc:"Forge"},{id:"deep",name:"Deep",icon:"🌌",cls:"icon-deep",file:"deep3.html",desc:"Deep"},{id:"back",name:"Backend",icon:"⚙️",cls:"icon-back",file:"back_qwen.html",desc:"Backend"}];
+const dock=document.getElementById("dock"),pagesTrack=document.getElementById("pagesTrack"),pageDots=document.getElementById("pageDots"),sidebarMenu=document.getElementById("sidebarMenu");
+const PER_PAGE=24;let currentPage=0;const totalPages=Math.ceil(apps.length/PER_PAGE);
+function createAppEl(app,isDock){const el=document.createElement("div");el.className="app";el.innerHTML=`<div class="app-icon ${app.cls}">${app.icon}</div>${isDock?"":`<div class="app-label">${app.name}</div>`}`;el.onclick=()=>openApp(app);return el}
+for(let p=0;p<totalPages;p++){const page=document.createElement("div");page.className="app-page";apps.slice(p*PER_PAGE,(p+1)*PER_PAGE).forEach(a=>page.appendChild(createAppEl(a)));pagesTrack.appendChild(page);const dot=document.createElement("div");dot.className="dot"+(p===0?" active":"");pageDots.appendChild(dot)}
 dockApps.forEach(a=>dock.appendChild(createAppEl(a,true)));
+function goToPage(n){currentPage=Math.max(0,Math.min(n,totalPages-1));pagesTrack.style.transform=`translateX(${currentPage*100*(document.documentElement.dir==="rtl"?1:-1)}%)`;pageDots.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("active",i===currentPage))}
+let startX=0,startY=0,swiping=false;const wrap=document.getElementById("pagesWrap");
+wrap.addEventListener("touchstart",e=>{startX=e.touches[0].clientX;startY=e.touches[0].clientY;swiping=true},{passive:true});
+wrap.addEventListener("touchend",e=>{if(!swiping)return;swiping=false;const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;if(Math.abs(dx)<40||Math.abs(dy)>Math.abs(dx))return;if(document.documentElement.dir==="rtl"){if(dx>0)goToPage(currentPage-1);else goToPage(currentPage+1)}else{if(dx<0)goToPage(currentPage+1);else goToPage(currentPage-1)}},{passive:true});
+apps.forEach(app=>{const item=document.createElement("div");item.className="menu-item";item.innerHTML=`<div class="app-icon ${app.cls}" style="width:36px;height:36px;font-size:18px;border-radius:8px">${app.icon}</div>${app.name}`;item.onclick=()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("sidebarOverlay").classList.remove("open");setTimeout(()=>openApp(app),280)};sidebarMenu.appendChild(item)});
 const modalOverlay=document.getElementById("modalOverlay");let currentApp=null;
 function openApp(app){currentApp=app;document.getElementById("modalIcon").className="modal-icon "+(app.cls||"");document.getElementById("modalIcon").textContent=app.icon;document.getElementById("modalTitle").textContent=app.name;document.getElementById("modalDesc").textContent=app.desc+(app.file?"\n\nفایل: "+app.file:"");modalOverlay.classList.add("open")}
 function closeModal(){modalOverlay.classList.remove("open");currentApp=null}
-document.getElementById("modalClose").onclick=closeModal;
-modalOverlay.onclick=e=>{if(e.target===modalOverlay)closeModal()};
+document.getElementById("modalClose").onclick=closeModal;modalOverlay.onclick=e=>{if(e.target===modalOverlay)closeModal()};
 document.getElementById("modalOpen").onclick=()=>{if(currentApp&&currentApp.file)location.href=currentApp.file;else closeModal()};
-const sidebar=document.getElementById("sidebar"),sidebarOverlay=document.getElementById("sidebarOverlay");
-document.getElementById("sidebarTrigger").onclick=()=>{sidebar.classList.add("open");sidebarOverlay.classList.add("open")};
-document.getElementById("sidebarClose").onclick=()=>{sidebar.classList.remove("open");sidebarOverlay.classList.remove("open")};
-sidebarOverlay.onclick=()=>{sidebar.classList.remove("open");sidebarOverlay.classList.remove("open")};
+document.getElementById("sidebarTrigger").onclick=()=>{document.getElementById("sidebar").classList.add("open");document.getElementById("sidebarOverlay").classList.add("open")};
+document.getElementById("sidebarClose").onclick=()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("sidebarOverlay").classList.remove("open")};
+document.getElementById("sidebarOverlay").onclick=()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("sidebarOverlay").classList.remove("open")};
 function updateClock(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit",hour12:false})}
 updateClock();setInterval(updateClock,30000);
 </script>
