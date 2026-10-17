@@ -3,126 +3,390 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Grok-Rip | iPhone 16 Pro Max</title>
+<title>Grok-Rip | iPhone 16 Pro Max Home</title>
+<meta name="description" content="Grok-Rip — مجموعه ابزارهای ایزوله Nononick و Grok در قالب صفحه اصلی iPhone 16 Pro Max">
 <meta name="theme-color" content="#0a0a0a">
 <style>
-:root{--phone-w:390px;--phone-h:844px;--bezel:14px;--radius:55px;--island-w:126px;--island-h:37px;--safe-top:59px;--dock-h:94px;--accent:#a78bfa}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;background:#050505;color:#fff}
-body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(139,92,246,.25),transparent),#050505;padding:20px}
-.brand{position:fixed;top:20px;left:0;right:0;text-align:center;z-index:10;pointer-events:none}
-.brand h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#fff,#c4b5fd,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.phone{position:relative;width:var(--phone-w);height:var(--phone-h);background:#1c1c1e;border-radius:var(--radius);box-shadow:0 0 0 3px #2c2c2e,0 0 0 6px #3a3a3c,0 25px 80px rgba(0,0,0,.7);overflow:hidden}
-.screen{position:absolute;inset:var(--bezel);border-radius:calc(var(--radius) - 8px);overflow:hidden;background:#000}
-.wallpaper{position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(139,92,246,.4),transparent 50%),radial-gradient(circle at 70% 80%,rgba(59,130,246,.3),transparent 50%),linear-gradient(160deg,#0f0a1e,#1a1030 40%,#0a0612)}
-.dynamic-island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:var(--island-w);height:var(--island-h);background:#000;border-radius:22px;z-index:100}
-.status-bar{position:absolute;top:0;left:0;right:0;height:var(--safe-top);padding:14px 28px 0;display:flex;justify-content:space-between;z-index:50;font-size:15px;font-weight:600}
-.home{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;padding-top:calc(var(--safe-top)+12px);padding-bottom:8px}
-.pages-wrap{flex:1;overflow:hidden;position:relative}
-.pages-track{display:flex;height:100%;transition:transform .35s cubic-bezier(.25,.8,.25,1)}
-.app-page{min-width:100%;height:100%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(6,min-content);gap:16px 6px;padding:10px 18px 0;align-content:start}
-.app{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer}.app:active{transform:scale(.88)}
-.app-icon{width:60px;height:60px;border-radius:13.5px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 3px 10px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.22);position:relative;overflow:hidden}
-.app-icon::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.08) 38%,transparent 58%);pointer-events:none}
-.app-label{font-size:11px;font-weight:500;color:#fff;text-align:center;max-width:72px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.icon-mohta{background:linear-gradient(145deg,#c084fc,#a78bfa)}.icon-nono{background:linear-gradient(145deg,#f472b6,#e879f9)}.icon-noinc{background:linear-gradient(145deg,#38bdf8,#0ea5e9)}.icon-tex{background:linear-gradient(145deg,#fbbf24,#f59e0b)}.icon-goft{background:linear-gradient(145deg,#2dd4bf,#14b8a6)}.icon-gushi{background:linear-gradient(145deg,#a855f7,#6366f1)}.icon-deep{background:linear-gradient(145deg,#06b6d4,#3b82f6)}.icon-deepo{background:linear-gradient(145deg,#818cf8,#6366f1)}.icon-back{background:linear-gradient(145deg,#22c55e,#16a34a)}.icon-hiop{background:linear-gradient(145deg,#0ea5e9,#0284c7)}.icon-vert{background:linear-gradient(145deg,#ec4899,#f43f5e)}.icon-note{background:linear-gradient(145deg,#64748b,#94a3b8)}.icon-ad{background:linear-gradient(145deg,#e11d48,#be123c)}.icon-real{background:linear-gradient(145deg,#84cc16,#65a30d)}.icon-depag{background:linear-gradient(145deg,#f43f5e,#e11d48)}.icon-v3{background:linear-gradient(145deg,#14b8a6,#0d9488)}.icon-1204{background:linear-gradient(145deg,#a78bfa,#7c3aed)}
-.icon-c1{background:linear-gradient(145deg,#007AFF,#0051D4)}.icon-c2{background:linear-gradient(145deg,#34C759,#248A3D)}.icon-c3{background:linear-gradient(145deg,#FF9500,#E68600)}.icon-c4{background:linear-gradient(145deg,#FF2D55,#D70015)}.icon-c5{background:linear-gradient(145deg,#AF52DE,#8944AB)}.icon-c6{background:linear-gradient(145deg,#5856D6,#3634A3)}.icon-c7{background:linear-gradient(145deg,#FF3B30,#D70015)}.icon-c8{background:linear-gradient(145deg,#5AC8FA,#32ADE6)}.icon-c9{background:linear-gradient(145deg,#FFCC00,#F5A623)}.icon-c10{background:linear-gradient(145deg,#64D2FF,#00C7BE)}.icon-c11{background:linear-gradient(145deg,#BF5AF2,#9B3DDB)}.icon-c12{background:linear-gradient(145deg,#FF6482,#FF375F)}.icon-c13{background:linear-gradient(145deg,#30D158,#248A3D)}.icon-c14{background:linear-gradient(145deg,#FF9F0A,#FF8C00)}.icon-c15{background:linear-gradient(145deg,#0A84FF,#0066CC)}.icon-c16{background:linear-gradient(145deg,#FF453A,#D70015)}.icon-c17{background:linear-gradient(145deg,#32D74B,#28A745)}.icon-c18{background:linear-gradient(145deg,#64D2FF,#5AC8FA)}.icon-c19{background:linear-gradient(145deg,#BF5AF2,#AF52DE)}.icon-c20{background:linear-gradient(145deg,#FFD60A,#FFCC00)}.icon-c21{background:linear-gradient(145deg,#FF375F,#FF2D55)}.icon-c22{background:linear-gradient(145deg,#AC8E68,#8E733A)}.icon-c23{background:linear-gradient(145deg,#8E8E93,#636366)}.icon-c24{background:linear-gradient(145deg,#FF9500,#FF6B00)}.icon-c25{background:linear-gradient(145deg,#30B0C7,#1A8A9E)}.icon-c26{background:linear-gradient(145deg,#FF2D55,#C41E3A)}.icon-c27{background:linear-gradient(145deg,#5E5CE6,#4B4ACF)}.icon-c28{background:linear-gradient(145deg,#FF9F0A,#E68600)}.icon-c29{background:linear-gradient(145deg,#34C759,#30D158)}.icon-c30{background:linear-gradient(145deg,#007AFF,#5AC8FA)}
-.page-dots{display:flex;justify-content:center;gap:7px;padding:10px 0 6px}.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3)}.dot.active{background:#fff}
-.dock{margin:0 16px 10px;height:var(--dock-h);background:rgba(255,255,255,.12);backdrop-filter:blur(40px);border-radius:32px;display:flex;align-items:center;justify-content:space-evenly;padding:0 12px}.dock .app-icon{width:54px;height:54px;border-radius:12px}.dock .app-label{display:none}
-.home-indicator{width:134px;height:5px;background:#fff;border-radius:3px;margin:0 auto 8px;opacity:.9}
-.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:300;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:flex-end;justify-content:center}.modal-overlay.open{opacity:1;visibility:visible}
-.modal{width:100%;max-height:70%;background:#1c1c1e;border-radius:28px 28px 0 0;padding:12px 20px 40px;transform:translateY(100%);transition:transform .38s}.modal-overlay.open .modal{transform:translateY(0)}
-.modal-handle{width:40px;height:5px;background:rgba(255,255,255,.25);border-radius:3px;margin:0 auto 18px}.modal-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px}.modal h3{text-align:center;font-size:1.3rem;margin-bottom:6px}.modal p{text-align:center;color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:22px;white-space:pre-line}.modal-actions{display:flex;gap:12px}.modal-btn{flex:1;padding:14px;border-radius:14px;border:none;font-size:16px;font-weight:600;cursor:pointer}.modal-btn.primary{background:var(--accent);color:#fff}.modal-btn.secondary{background:rgba(255,255,255,.1);color:#fff}
-@media(max-width:440px){body{padding:0}.phone{width:100vw;height:100vh;border-radius:0;box-shadow:none}.screen{inset:0;border-radius:0}.brand{display:none}}
+  :root {
+    --phone-w: 390px;
+    --phone-h: 844px;
+    --bezel: 14px;
+    --radius: 55px;
+    --island-w: 126px;
+    --island-h: 37px;
+    --safe-top: 59px;
+    --dock-h: 94px;
+    --accent: #a78bfa;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif; background: #050505; color: #fff; }
+  body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.25), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(59, 130, 246, 0.15), transparent), #050505;
+    padding: 20px;
+  }
+  .brand { position: fixed; top: 24px; left: 0; right: 0; text-align: center; z-index: 10; pointer-events: none; }
+  .brand h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .github-btn {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 10;
+    display: flex; align-items: center; gap: 8px; padding: 12px 22px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px;
+    color: #fff; font-size: 0.9rem; font-weight: 500; text-decoration: none; backdrop-filter: blur(20px); transition: all 0.25s ease; pointer-events: auto;
+  }
+  .github-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(167,139,250,0.5); transform: translateX(-50%) scale(1.03); }
+  .github-btn svg { width: 18px; height: 18px; }
+  .phone {
+    position: relative; width: var(--phone-w); height: var(--phone-h); background: #1c1c1e; border-radius: var(--radius);
+    box-shadow: 0 0 0 3px #2c2c2e, 0 0 0 6px #3a3a3c, 0 25px 80px rgba(0,0,0,0.7), 0 0 120px rgba(139,92,246,0.15); overflow: hidden; flex-shrink: 0;
+  }
+  .btn-vol-up, .btn-vol-down, .btn-power, .btn-action { position: absolute; background: #2c2c2e; border-radius: 4px; z-index: 5; }
+  .btn-vol-up { left: -3px; top: 160px; width: 4px; height: 32px; }
+  .btn-vol-down { left: -3px; top: 210px; width: 4px; height: 55px; }
+  .btn-action { left: -3px; top: 120px; width: 4px; height: 28px; }
+  .btn-power { right: -3px; top: 180px; width: 4px; height: 70px; }
+  .screen { position: absolute; inset: var(--bezel); border-radius: calc(var(--radius) - 8px); overflow: hidden; background: #000; }
+  .wallpaper {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(139,92,246,0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(59,130,246,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(168,85,247,0.15) 0%, transparent 70%),
+                linear-gradient(160deg, #0f0a1e 0%, #1a1030 40%, #0a0612 100%);
+  }
+  .dynamic-island {
+    position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: var(--island-w); height: var(--island-h);
+    background: #000; border-radius: 22px; z-index: 100; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+  }
+  .dynamic-island .cam { width: 12px; height: 12px; background: #1a1a1a; border-radius: 50%; position: relative; }
+  .dynamic-island .cam::after { content: ""; position: absolute; inset: 3px; background: #0a2540; border-radius: 50%; }
+  .dynamic-island .sensor { width: 8px; height: 8px; background: #111; border-radius: 50%; }
+  .status-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: var(--safe-top); padding: 14px 28px 0;
+    display: flex; justify-content: space-between; align-items: flex-start; z-index: 50; font-size: 15px; font-weight: 600; letter-spacing: -0.3px;
+  }
+  .status-left { width: 80px; }
+  .status-right { display: flex; align-items: center; gap: 6px; width: 90px; justify-content: flex-end; }
+  .status-right svg { width: 17px; height: 12px; fill: #fff; }
+  .battery { width: 25px; height: 12px; border: 1.5px solid rgba(255,255,255,0.9); border-radius: 3px; position: relative; padding: 1px; }
+  .battery::after { content: ""; position: absolute; right: -3px; top: 3px; width: 1.5px; height: 5px; background: rgba(255,255,255,0.9); border-radius: 0 1px 1px 0; }
+  .battery-fill { height: 100%; width: 78%; background: #fff; border-radius: 1px; }
+  .home {
+    position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column;
+    padding-top: calc(var(--safe-top) + 12px); padding-bottom: 8px;
+  }
+  .pages-wrap { flex: 1; overflow: hidden; position: relative; }
+  .pages-track { display: flex; height: 100%; transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .app-page {
+    min-width: 100%; height: 100%;
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(6, min-content);
+    gap: 16px 6px; padding: 10px 18px 0; align-content: start;
+  }
+  .app { display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; transition: transform 0.15s; }
+  .app:active { transform: scale(0.88); }
+  .app-icon {
+    width: 60px; height: 60px; border-radius: 13.5px;
+    display: flex; align-items: center; justify-content: center; font-size: 26px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.22);
+    position: relative; overflow: hidden;
+  }
+  .app-icon::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit;
+    background: linear-gradient(160deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 38%, transparent 58%);
+    pointer-events: none;
+  }
+  .app-label {
+    font-size: 11px; font-weight: 500; color: #fff; text-align: center; max-width: 72px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .icon-mohta { background: linear-gradient(145deg, #c084fc, #a78bfa); }
+  .icon-nono { background: linear-gradient(145deg, #f472b6, #e879f9); }
+  .icon-noinc { background: linear-gradient(145deg, #38bdf8, #0ea5e9); }
+  .icon-tex { background: linear-gradient(145deg, #fbbf24, #f59e0b); }
+  .icon-goft { background: linear-gradient(145deg, #2dd4bf, #14b8a6); }
+  .icon-gushi { background: linear-gradient(145deg, #a855f7, #6366f1); }
+  .icon-deep { background: linear-gradient(145deg, #06b6d4, #3b82f6); }
+  .icon-deepo { background: linear-gradient(145deg, #818cf8, #6366f1); }
+  .icon-back { background: linear-gradient(145deg, #22c55e, #16a34a); }
+  .icon-hiop { background: linear-gradient(145deg, #0ea5e9, #0284c7); }
+  .icon-vert { background: linear-gradient(145deg, #ec4899, #f43f5e); }
+  .icon-note { background: linear-gradient(145deg, #64748b, #94a3b8); }
+  .icon-ad { background: linear-gradient(145deg, #e11d48, #be123c); }
+  .icon-real { background: linear-gradient(145deg, #84cc16, #65a30d); }
+  .icon-depag { background: linear-gradient(145deg, #f43f5e, #e11d48); }
+  .icon-v3 { background: linear-gradient(145deg, #14b8a6, #0d9488); }
+  .icon-1204 { background: linear-gradient(145deg, #a78bfa, #7c3aed); }
+  .icon-c1 { background: linear-gradient(145deg, #007AFF, #0051D4); }
+  .icon-c2 { background: linear-gradient(145deg, #34C759, #248A3D); }
+  .icon-c3 { background: linear-gradient(145deg, #FF9500, #E68600); }
+  .icon-c4 { background: linear-gradient(145deg, #FF2D55, #D70015); }
+  .icon-c5 { background: linear-gradient(145deg, #AF52DE, #8944AB); }
+  .icon-c6 { background: linear-gradient(145deg, #5856D6, #3634A3); }
+  .icon-c10 { background: linear-gradient(145deg, #64D2FF, #00C7BE); }
+  .icon-c11 { background: linear-gradient(145deg, #BF5AF2, #9B3DDB); }
+  .icon-c12 { background: linear-gradient(145deg, #FF6482, #FF375F); }
+  .icon-c17 { background: linear-gradient(145deg, #32D74B, #28A745); }
+  .icon-c20 { background: linear-gradient(145deg, #FFD60A, #FFCC00); }
+  .icon-c21 { background: linear-gradient(145deg, #FF375F, #FF2D55); }
+  .icon-c22 { background: linear-gradient(145deg, #AC8E68, #8E733A); }
+  .icon-c23 { background: linear-gradient(145deg, #8E8E93, #636366); }
+  .icon-c26 { background: linear-gradient(145deg, #FF2D55, #C41E3A); }
+  .icon-c27 { background: linear-gradient(145deg, #5E5CE6, #4B4ACF); }
+  .icon-c29 { background: linear-gradient(145deg, #34C759, #30D158); }
+  .page-dots { display: flex; justify-content: center; gap: 7px; padding: 10px 0 6px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: 0.2s; }
+  .dot.active { background: #fff; }
+  .dock {
+    margin: 0 16px 10px; height: var(--dock-h); background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border-radius: 32px;
+    display: flex; align-items: center; justify-content: space-evenly; padding: 0 12px;
+  }
+  .dock .app { gap: 0; }
+  .dock .app-icon { width: 54px; height: 54px; border-radius: 12px; }
+  .dock .app-label { display: none; }
+  .home-indicator { width: 134px; height: 5px; background: #fff; border-radius: 3px; margin: 0 auto 8px; opacity: 0.9; }
+  .modal-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 300;
+    opacity: 0; visibility: hidden; transition: 0.3s; display: flex; align-items: flex-end; justify-content: center;
+  }
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+  .modal {
+    width: 100%; max-height: 70%; background: #1c1c1e; border-radius: 28px 28px 0 0;
+    padding: 12px 20px 40px; transform: translateY(100%); transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-handle { width: 40px; height: 5px; background: rgba(255,255,255,0.25); border-radius: 3px; margin: 0 auto 18px; }
+  .modal-icon { width: 72px; height: 72px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 34px; margin: 0 auto 14px; }
+  .modal h3 { text-align: center; font-size: 1.3rem; margin-bottom: 6px; }
+  .modal p { text-align: center; color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 22px; white-space: pre-line; }
+  .modal-actions { display: flex; gap: 12px; }
+  .modal-btn { flex: 1; padding: 14px; border-radius: 14px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .modal-btn.primary { background: var(--accent); color: #fff; }
+  .modal-btn.secondary { background: rgba(255,255,255,0.1); color: #fff; }
+  .sidebar {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 78%; max-width: 300px;
+    background: rgba(28,28,30,0.92); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+    z-index: 200; transform: translateX(105%); transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+    border-radius: 0 0 0 28px; padding: calc(var(--safe-top) + 20px) 20px 40px; overflow-y: auto;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-backdrop {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 150;
+    opacity: 0; visibility: hidden; transition: 0.3s;
+  }
+  .sidebar-backdrop.open { opacity: 1; visibility: visible; }
+  .sidebar h2 { font-size: 1.4rem; margin-bottom: 20px; }
+  .menu-item {
+    display: flex; align-items: center; gap: 14px; padding: 14px 12px; border-radius: 14px;
+    color: #fff; text-decoration: none; margin-bottom: 4px; transition: background 0.2s;
+  }
+  .menu-item:hover, .menu-item:active { background: rgba(255,255,255,0.08); }
+  .menu-item .mi-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,255,255,0.1); }
+  .menu-item span { font-size: 15px; font-weight: 500; }
+  @media (max-width: 440px) {
+    body { padding: 0; }
+    .phone { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; }
+    .screen { inset: 0; border-radius: 0; }
+    .brand, .github-btn { display: none; }
+    .btn-vol-up, .btn-vol-down, .btn-power, .btn-action { display: none; }
+  }
 </style>
 </head>
 <body>
-<div class="brand"><h1>Grok-Rip</h1></div>
-<div class="phone"><div class="screen">
-<div class="wallpaper"></div>
-<div class="dynamic-island"></div>
-<div class="status-bar"><div id="clock">12:30</div><div style="display:flex;gap:6px;align-items:center"><span style="font-size:12px">LTE</span><div style="width:25px;height:12px;border:1.5px solid #fff;border-radius:3px;padding:1px"><div style="height:100%;width:80%;background:#fff;border-radius:1px"></div></div></div></div>
-<div class="home">
-<div class="pages-wrap" id="pagesWrap"><div class="pages-track" id="pagesTrack"></div></div>
-<div class="page-dots" id="pageDots"></div>
-<div class="dock" id="dock"></div>
-<div class="home-indicator"></div>
-</div>
-<div class="modal-overlay" id="modalOverlay"><div class="modal">
-<div class="modal-handle"></div><div class="modal-icon" id="modalIcon">📱</div>
-<h3 id="modalTitle">App</h3><p id="modalDesc">desc</p>
-<div class="modal-actions"><button class="modal-btn secondary" id="modalClose">بستن</button><button class="modal-btn primary" id="modalOpen">باز کردن</button></div>
-</div></div>
-</div></div>
+  <div class="brand">
+    <h1>Grok-Rip</h1>
+    <p>iPhone 16 Pro Max · Nononick Suite</p>
+  </div>
+
+  <div class="phone">
+    <div class="btn-action"></div>
+    <div class="btn-vol-up"></div>
+    <div class="btn-vol-down"></div>
+    <div class="btn-power"></div>
+    <div class="screen">
+      <div class="wallpaper"></div>
+      <div class="dynamic-island" id="island">
+        <div class="cam"></div>
+        <div class="sensor"></div>
+      </div>
+      <div class="status-bar">
+        <div class="status-left" id="clock">12:30</div>
+        <div class="status-right">
+          <svg viewBox="0 0 17 12"><path d="M1 8.5h2v2H1zm3.5-2.5h2v5h-2zm3.5-2h2v7H8zm3.5-2.5h2v9.5h-2z"/></svg>
+          <svg viewBox="0 0 16 12"><path d="M8 3.5c2.2 0 4.1 1 5.4 2.6l-1.4 1.4C11 6.4 9.6 5.7 8 5.7s-3 .7-4 1.8L2.6 6.1C3.9 4.5 5.8 3.5 8 3.5zm0-3C11.3.5 14.2 2 16 4.4l-1.4 1.4C13.1 4 10.7 2.7 8 2.7S2.9 4 1.4 5.8L0 4.4C1.8 2 4.7.5 8 .5zM8 6.5c1.1 0 2 .4 2.7 1.1L8 10.3 5.3 7.6C6 6.9 6.9 6.5 8 6.5z"/></svg>
+          <div class="battery"><div class="battery-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="home">
+        <div class="pages-wrap" id="pagesWrap">
+          <div class="pages-track" id="pagesTrack"></div>
+        </div>
+        <div class="page-dots" id="pageDots"></div>
+        <div class="dock" id="dock"></div>
+        <div class="home-indicator"></div>
+      </div>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <div class="sidebar" id="sidebar">
+        <h2>منو</h2>
+        <a class="menu-item" href="widgets.html"><div class="mi-icon">📊</div><span>Widgets</span></a>
+        <a class="menu-item" href="icons.html"><div class="mi-icon">🎨</div><span>Icon Pack</span></a>
+        <a class="menu-item" href="https://github.com/alirezassezar1-svg/Grok-Rip" target="_blank" rel="noopener"><div class="mi-icon">📦</div><span>GitHub Repo</span></a>
+        <a class="menu-item" href="https://alirezassezar1-svg.github.io/Grok-Rip/" target="_blank" rel="noopener"><div class="mi-icon">🌐</div><span>GitHub Pages</span></a>
+      </div>
+
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+          <div class="modal-handle"></div>
+          <div class="modal-icon" id="modalIcon">📱</div>
+          <h3 id="modalTitle">App</h3>
+          <p id="modalDesc">desc</p>
+          <div class="modal-actions">
+            <button class="modal-btn secondary" id="modalClose">بستن</button>
+            <button class="modal-btn primary" id="modalOpen">باز کردن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="github-btn" href="https://github.com/alirezassezar1-svg/Grok-Rip" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    Grok-Rip on GitHub
+  </a>
+
 <script>
-const apps=[
-{id:"mohta",name:"Content Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html",desc:"استودیوی محتوا"},
-{id:"nono",name:"Digital Future",icon:"🚀",cls:"icon-nono",file:"nononick-onefile.html",desc:"لندینگ"},
-{id:"nono2",name:"Nononick",icon:"💜",cls:"icon-nono",file:"nononick-single-file.html",desc:"تک‌فایل"},
-{id:"noinc",name:"Architecture",icon:"🏛️",cls:"icon-noinc",file:"noinc.html",desc:"معماری"},
-{id:"tex",name:"Tex Editor",icon:"✍️",cls:"icon-tex",file:"Tex_edit.html",desc:"ادیتور"},
-{id:"texq",name:"Tex Qwen",icon:"📄",cls:"icon-tex",file:"Tex_Qwen_Editor.html",desc:"Qwen"},
-{id:"goft",name:"HTML Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html",desc:"فورج"},
-{id:"gushi",name:"Forge+",icon:"📦",cls:"icon-gushi",file:"gushi.html",desc:"فورج+"},
-{id:"deep",name:"Immersive",icon:"🌌",cls:"icon-deep",file:"deep3.html",desc:"immersive"},
-{id:"deepo",name:"Nebula",icon:"🌠",cls:"icon-deepo",file:"deepo.html",desc:"Nebula"},
-{id:"back",name:"Backend",icon:"⚙️",cls:"icon-back",file:"back_qwen.html",desc:"بک‌اند"},
-{id:"hiop",name:"Backend+",icon:"🔧",cls:"icon-hiop",file:"hiop.html",desc:"بک‌اند+"},
-{id:"vert",name:"Vert",icon:"📱",cls:"icon-vert",file:"vert.html",desc:"بیلدر"},
-{id:"note",name:"Notes",icon:"📓",cls:"icon-note",file:"note.html",desc:"نوت"},
-{id:"ad",name:"Ads",icon:"📢",cls:"icon-ad",file:"ad.html",desc:"تبلیغ"},
-{id:"real",name:"Real",icon:"🎯",cls:"icon-real",file:"real.html",desc:"پروتوتایپ"},
-{id:"depag",name:"Depag",icon:"📑",cls:"icon-depag",file:"depag.html",desc:"صفحه"},
-{id:"v3",name:"V3",icon:"⚡",cls:"icon-v3",file:"v3.html",desc:"V3"},
-{id:"1204",name:"1204",icon:"🔢",cls:"icon-1204",file:"1204.html",desc:"1204"},
-{id:"core",name:"Nononick Core",icon:"💜",cls:"icon-c5",file:"index-4.html",desc:"سایت اصلی Nononick"},
-{id:"bi",name:"Bilingual",icon:"🌐",cls:"icon-c1",file:"2zabane.html",desc:"نسخه دو زبانه"},
-{id:"neo",name:"Neo Studio",icon:"✨",cls:"icon-c4",file:"neo13.html",desc:"استودیو نئو"},
-{id:"engine",name:"Digital Engine",icon:"⚡",cls:"icon-c27",file:"NONONICK-DIGITAL-ENGINE.html",desc:"سیستم عامل دیجیتال"},
-{id:"textst",name:"Text Studio",icon:"✍️",cls:"icon-c12",file:"text.html",desc:"استودیوی متن"},
-{id:"mail",name:"NonoMail",icon:"📧",cls:"icon-c11",file:"Email-Qwen.html",desc:"ایمیل هوشمند"},
-{id:"cstudio",name:"Content AI",icon:"🧠",cls:"icon-c26",file:"modelindex.html",desc:"تولید محتوا AI"},
-{id:"auto",name:"Auto Grok",icon:"🤖",cls:"icon-c6",file:"Auto_Grok.html",desc:"اتوماسیون"},
-{id:"osgrok",name:"OS Grok",icon:"🖥️",cls:"icon-c23",file:"osgrok.html",desc:"سیستم عامل Grok"},
-{id:"icon10",name:"Icon 10",icon:"🕐",cls:"icon-c10",file:"icon10.html",desc:"قابل ویرایش"},
-{id:"icon11",name:"Icon 11",icon:"🛒",cls:"icon-c13",file:"icon11.html",desc:"قابل ویرایش"},
-{id:"icon12",name:"Icon 12",icon:"🎮",cls:"icon-c14",file:"icon12.html",desc:"قابل ویرایش"},
-{id:"icon13",name:"Icon 13",icon:"📚",cls:"icon-c15",file:"icon13.html",desc:"قابل ویرایش"},
-{id:"icon14",name:"Icon 14",icon:"🎬",cls:"icon-c16",file:"icon14.html",desc:"قابل ویرایش"},
-{id:"icon15",name:"Icon 15",icon:"💡",cls:"icon-c17",file:"icon15.html",desc:"قابل ویرایش"},
-{id:"icon16",name:"Icon 16",icon:"🔒",cls:"icon-c18",file:"icon16.html",desc:"قابل ویرایش"},
-{id:"icon17",name:"Icon 17",icon:"📊",cls:"icon-c20",file:"icon17.html",desc:"قابل ویرایش"},
-{id:"icon18",name:"Icon 18",icon:"🎨",cls:"icon-c21",file:"icon18.html",desc:"قابل ویرایش"},
-{id:"icon19",name:"Icon 19",icon:"💎",cls:"icon-c22",file:"icon19.html",desc:"قابل ویرایش"},
-{id:"icon20",name:"Icon 20",icon:"🔔",cls:"icon-c24",file:"icon20.html",desc:"قابل ویرایش"},
-{id:"icon21",name:"Icon 21",icon:"📁",cls:"icon-c25",file:"icon21.html",desc:"قابل ویرایش"},
-{id:"icon22",name:"Icon 22",icon:"🌟",cls:"icon-c28",file:"icon22.html",desc:"قابل ویرایش"},
-{id:"icon23",name:"Icon 23",icon:"🔮",cls:"icon-c29",file:"icon23.html",desc:"قابل ویرایش"},
-{id:"icon24",name:"Icon 24",icon:"✨",cls:"icon-c30",file:"icon24.html",desc:"قابل ویرایش"},
-{id:"icon25",name:"Icon 25",icon:"📱",cls:"icon-c1",file:"icon25.html",desc:"قابل ویرایش"},
-{id:"icon26",name:"Icon 26",icon:"💬",cls:"icon-c2",file:"icon26.html",desc:"قابل ویرایش"},
-{id:"icon27",name:"Icon 27",icon:"📷",cls:"icon-c3",file:"icon27.html",desc:"قابل ویرایش"},
-{id:"icon28",name:"Icon 28",icon:"🎵",cls:"icon-c4",file:"icon28.html",desc:"قابل ویرایش"},
-{id:"icon29",name:"Icon 29",icon:"🗺️",cls:"icon-c5",file:"icon29.html",desc:"قابل ویرایش"},
-{id:"icon30",name:"Icon 30",icon:"⚙️",cls:"icon-c6",file:"icon30.html",desc:"قابل ویرایش"}
-];
-const dockApps=[{id:"mohta",name:"Studio",icon:"📝",cls:"icon-mohta",file:"mohta-qwen.html"},{id:"goft",name:"Forge",icon:"🛠️",cls:"icon-goft",file:"goft.html"},{id:"deep",name:"Deep",icon:"🌌",cls:"icon-deep",file:"deep3.html"},{id:"engine",name:"Engine",icon:"⚡",cls:"icon-c27",file:"NONONICK-DIGITAL-ENGINE.html"}];
-const pagesTrack=document.getElementById("pagesTrack"),pageDots=document.getElementById("pageDots"),dock=document.getElementById("dock");
-const PER_PAGE=24;let currentPage=0;const totalPages=Math.ceil(apps.length/PER_PAGE);
-function createAppEl(app,isDock){const el=document.createElement("div");el.className="app";el.innerHTML=`<div class="app-icon ${app.cls}">${app.icon}</div>${isDock?"":`<div class="app-label">${app.name}</div>`}`;el.onclick=()=>openApp(app);return el}
-for(let p=0;p<totalPages;p++){const page=document.createElement("div");page.className="app-page";apps.slice(p*PER_PAGE,(p+1)*PER_PAGE).forEach(a=>page.appendChild(createAppEl(a)));pagesTrack.appendChild(page);const dot=document.createElement("div");dot.className="dot"+(p===0?" active":"");pageDots.appendChild(dot)}
-dockApps.forEach(a=>dock.appendChild(createAppEl(a,true)));
-function goToPage(n){currentPage=Math.max(0,Math.min(n,totalPages-1));pagesTrack.style.transform=`translateX(${currentPage*100*(document.documentElement.dir==="rtl"?1:-1)}%)`;pageDots.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("active",i===currentPage))}
-let startX=0,swiping=false;const wrap=document.getElementById("pagesWrap");
-wrap.addEventListener("touchstart",e=>{startX=e.touches[0].clientX;swiping=true},{passive:true});
-wrap.addEventListener("touchend",e=>{if(!swiping)return;swiping=false;const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)<40)return;if(document.documentElement.dir==="rtl"){if(dx>0)goToPage(currentPage-1);else goToPage(currentPage+1)}else{if(dx<0)goToPage(currentPage+1);else goToPage(currentPage-1)}},{passive:true});
-const modalOverlay=document.getElementById("modalOverlay");let currentApp=null;
-function openApp(app){currentApp=app;document.getElementById("modalIcon").className="modal-icon "+(app.cls||"");document.getElementById("modalIcon").textContent=app.icon;document.getElementById("modalTitle").textContent=app.name;document.getElementById("modalDesc").textContent=(app.desc||"")+(app.file?"\n\nفایل: "+app.file:"");modalOverlay.classList.add("open")}
-function closeModal(){modalOverlay.classList.remove("open");currentApp=null}
-document.getElementById("modalClose").onclick=closeModal;modalOverlay.onclick=e=>{if(e.target===modalOverlay)closeModal()};
-document.getElementById("modalOpen").onclick=()=>{if(currentApp&&currentApp.file)location.href=currentApp.file;else closeModal()};
-function updateClock(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit",hour12:false})}
-updateClock();setInterval(updateClock,30000);
+  const apps = [
+    { id: "mohta",  name: "Content Studio", icon: "📝", cls: "icon-mohta", file: "mohta-qwen.html", desc: "استودیوی تولید محتوا با هوش مصنوعی" },
+    { id: "nono",   name: "Digital Future", icon: "🚀", cls: "icon-nono",  file: "nononick-onefile.html", desc: "لندینگ آینده‌نگر با اورب و ذرات" },
+    { id: "nono2",  name: "Nononick Single",icon: "💜", cls: "icon-nono",  file: "nononick-single-file.html", desc: "نسخه تک‌فایل Nononick" },
+    { id: "noinc",  name: "Architecture",   icon: "🏛️", cls: "icon-noinc", file: "noinc.html", desc: "معماری دیجیتال و مانیفست" },
+    { id: "tex",    name: "Tex Editor",     icon: "✍️", cls: "icon-tex",   file: "Tex_edit.html", desc: "ادیتور AI با استریمینگ" },
+    { id: "texq",   name: "Tex Qwen",       icon: "📄", cls: "icon-tex",   file: "Tex_Qwen_Editor.html", desc: "ادیتور پیشرفته Qwen" },
+    { id: "goft",   name: "HTML Forge",     icon: "🛠️", cls: "icon-goft",  file: "goft.html", desc: "فورج HTML با درخت پروژه" },
+    { id: "gushi",  name: "HTML Forge+",    icon: "📦", cls: "icon-gushi", file: "gushi.html", desc: "فورج پیشرفته با اکسپورت" },
+    { id: "deep",   name: "Immersive",      icon: "🌌", cls: "icon-deep",  file: "deep3.html", desc: "استودیوی immersive سه‌بعدی" },
+    { id: "deepo",  name: "Nebula Deep",    icon: "🌠", cls: "icon-deepo", file: "deepo.html", desc: "Nebula با پچ‌های زنده" },
+    { id: "back",   name: "Backend Forge",  icon: "⚙️", cls: "icon-back",  file: "back_qwen.html", desc: "سازنده بک‌اند با ویزارد" },
+    { id: "hiop",   name: "Backend+",       icon: "🔧", cls: "icon-hiop",  file: "hiop.html", desc: "فورج بک‌اند پیشرفته" },
+    { id: "vert",   name: "Vert Builder",   icon: "📱", cls: "icon-vert",  file: "vert.html", desc: "بیلدر با فریم دستگاه" },
+    { id: "note",   name: "Notes",          icon: "📓", cls: "icon-note",  file: "note.html", desc: "ادیتور متن مینیمال" },
+    { id: "ad",     name: "Ad Studio",      icon: "📢", cls: "icon-ad",    file: "ad.html", desc: "ابزار ساخت تبلیغات" },
+    { id: "real",   name: "Real",           icon: "🎯", cls: "icon-real",  file: "real.html", desc: "پروتوتایپ واقعی" },
+    { id: "depag",  name: "Depag",          icon: "📑", cls: "icon-depag", file: "depag.html", desc: "صفحه‌بندی و محتوا" },
+    { id: "v3",     name: "V3",             icon: "⚡", cls: "icon-v3",    file: "v3.html", desc: "نسخه سوم ابزارها" },
+    { id: "1204",   name: "1204",           icon: "🔢", cls: "icon-1204",  file: "1204.html", desc: "ابزار 1204" },
+    { id: "core",   name: "Nononick Core",  icon: "💜", cls: "icon-c5",   file: "index-4.html", desc: "سایت اصلی Nononick" },
+    { id: "bi",     name: "Bilingual",      icon: "🌐", cls: "icon-c1",   file: "2zabane.html", desc: "نسخه دو زبانه EN/FA" },
+    { id: "neo",    name: "Neo Studio",     icon: "✨", cls: "icon-c4",   file: "neo13.html", desc: "استودیو طراحی نئو" },
+    { id: "engine", name: "Digital Engine", icon: "⚡", cls: "icon-c27",  file: "NONONICK-DIGITAL-ENGINE.html", desc: "سیستم عامل دیجیتال" },
+    { id: "textst", name: "Text Studio",    icon: "✍️", cls: "icon-c12",  file: "text.html", desc: "استودیوی متن و ترجمه" },
+    { id: "mail",   name: "NonoMail",       icon: "📧", cls: "icon-c11",  file: "Email-Qwen.html", desc: "ایمیل هوشمند AI" },
+    { id: "cstudio",name: "Content AI",     icon: "🧠", cls: "icon-c26",  file: "modelindex.html", desc: "تولید محتوا با AI" },
+    { id: "auto",   name: "Auto Grok",      icon: "🤖", cls: "icon-c6",   file: "Auto_Grok.html", desc: "اتوماسیون Grok" },
+    { id: "osgrok", name: "OS Grok",        icon: "🖥️", cls: "icon-c23",  file: "osgrok.html", desc: "سیستم عامل Grok" },
+    { id: "nmail",  name: "NonoMail AI",    icon: "✉️", cls: "icon-c11",  file: "NonoMail-AI-FIXED.html", desc: "سیستم عامل ایمیل با AI" },
+    { id: "nonoai", name: "NONO AI",        icon: "🔮", cls: "icon-c29",  file: "index-5.html", desc: "همه مدل‌های AI در یک گفت‌وگو" },
+    { id: "voice",  name: "Global Voice",   icon: "📞", cls: "icon-c10",  file: "index-6.html", desc: "شماره مجازی، تماس و SMS" },
+    { id: "nonoai2",name: "NONO AI v2",     icon: "💬", cls: "icon-c2",   file: "index-7.html", desc: "چت چندمدلی با کانواس" },
+    { id: "provider",name: "Provider Hub",  icon: "🔌", cls: "icon-c20",  file: "provaider2.html", desc: "مدیریت پرووایدرهای AI" },
+    { id: "studio", name: "NONONICK Studio",icon: "🏢", cls: "icon-c22",  file: "index-8.html", desc: "وب‌سایت استودیو دیجیتال" },
+    { id: "widgets",name: "Widgets",        icon: "📊", cls: "icon-c17",  file: "widgets.html", desc: "ویجت‌های شیشه‌ای iOS" },
+    { id: "icons",  name: "Icon Pack",      icon: "🎨", cls: "icon-c21",  file: "icons.html", desc: "پک آیکون و لانچر" },
+  ];
+
+  const dockApps = [
+    { id: "nmail", name: "Mail", icon: "✉️", cls: "icon-c11", file: "NonoMail-AI-FIXED.html" },
+    { id: "nonoai", name: "AI", icon: "🔮", cls: "icon-c29", file: "index-5.html" },
+    { id: "engine", name: "Engine", icon: "⚡", cls: "icon-c27", file: "NONONICK-DIGITAL-ENGINE.html" },
+    { id: "voice", name: "Voice", icon: "📞", cls: "icon-c10", file: "index-6.html" },
+  ];
+
+  const pagesTrack = document.getElementById("pagesTrack");
+  const pageDots = document.getElementById("pageDots");
+  const dock = document.getElementById("dock");
+  const PER_PAGE = 24;
+  let currentPage = 0;
+  const totalPages = Math.ceil(apps.length / PER_PAGE);
+
+  function createAppEl(app, isDock) {
+    const el = document.createElement("div");
+    el.className = "app";
+    el.innerHTML = `<div class="app-icon ${app.cls || ""}">${app.icon}</div>${isDock ? "" : `<div class="app-label">${app.name}</div>`}`;
+    el.onclick = () => openApp(app);
+    return el;
+  }
+
+  for (let p = 0; p < totalPages; p++) {
+    const page = document.createElement("div");
+    page.className = "app-page";
+    apps.slice(p * PER_PAGE, (p + 1) * PER_PAGE).forEach(a => page.appendChild(createAppEl(a)));
+    pagesTrack.appendChild(page);
+    const dot = document.createElement("div");
+    dot.className = "dot" + (p === 0 ? " active" : "");
+    pageDots.appendChild(dot);
+  }
+  dockApps.forEach(a => dock.appendChild(createAppEl(a, true)));
+
+  function goToPage(n) {
+    currentPage = Math.max(0, Math.min(n, totalPages - 1));
+    const dir = document.documentElement.dir === "rtl" ? 1 : -1;
+    pagesTrack.style.transform = `translateX(${currentPage * 100 * dir}%)`;
+    pageDots.querySelectorAll(".dot").forEach((d, i) => d.classList.toggle("active", i === currentPage));
+  }
+
+  let startX = 0, swiping = false;
+  const wrap = document.getElementById("pagesWrap");
+  wrap.addEventListener("touchstart", e => { startX = e.touches[0].clientX; swiping = true; }, { passive: true });
+  wrap.addEventListener("touchend", e => {
+    if (!swiping) return; swiping = false;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    if (document.documentElement.dir === "rtl") {
+      if (dx > 0) goToPage(currentPage - 1); else goToPage(currentPage + 1);
+    } else {
+      if (dx < 0) goToPage(currentPage + 1); else goToPage(currentPage - 1);
+    }
+  }, { passive: true });
+
+  const modalOverlay = document.getElementById("modalOverlay");
+  let currentApp = null;
+  function openApp(app) {
+    currentApp = app;
+    document.getElementById("modalIcon").className = "modal-icon " + (app.cls || "");
+    document.getElementById("modalIcon").textContent = app.icon;
+    document.getElementById("modalTitle").textContent = app.name;
+    document.getElementById("modalDesc").textContent = (app.desc || "") + (app.file ? "\n\nفایل: " + app.file : "");
+    modalOverlay.classList.add("open");
+  }
+  function closeModal() { modalOverlay.classList.remove("open"); currentApp = null; }
+  document.getElementById("modalClose").onclick = closeModal;
+  modalOverlay.onclick = e => { if (e.target === modalOverlay) closeModal(); };
+  document.getElementById("modalOpen").onclick = () => {
+    if (currentApp && currentApp.file) location.href = currentApp.file;
+    else closeModal();
+  };
+
+  // Sidebar
+  const sidebar = document.getElementById("sidebar");
+  const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+  document.getElementById("island").onclick = () => {
+    sidebar.classList.add("open");
+    sidebarBackdrop.classList.add("open");
+  };
+  sidebarBackdrop.onclick = () => {
+    sidebar.classList.remove("open");
+    sidebarBackdrop.classList.remove("open");
+  };
+
+  function updateClock() {
+    document.getElementById("clock").textContent = new Date().toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit", hour12: false });
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  document.addEventListener("contextmenu", e => e.preventDefault());
 </script>
 </body>
 </html>
