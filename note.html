@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<title>NONONICK Forge</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0b1020;--panel:#121a2e;--line:#243049;--tx:#e6ecff;--mut:#8291b0;--cy:#22d3ee;--red:#f87171;--gr:#34d399}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font:14px/1.5 -apple-system,system-ui,sans-serif}
+body{display:flex;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+header{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+header b{font-size:17px;letter-spacing:.5px}
+header b span{color:var(--cy)}
+header .tag{margin-left:auto;font-size:11px;color:var(--mut)}
+button,select{font:inherit;color:var(--tx);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:38px}
+button{cursor:pointer}
+button:active{transform:scale(.97)}
+button.primary{background:linear-gradient(135deg,#2563eb,#7c3aed);border:0;color:#fff;font-weight:600}
+button:disabled{opacity:.4}
+main{flex:1;display:flex;flex-direction:column;min-height:0}
+.bar{display:flex;gap:6px;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.bar select{flex:1;min-width:110px}
+.split{display:flex;min-height:0;flex:1}
+aside{width:130px;flex-shrink:0;border-right:1px solid var(--line);overflow:auto;background:#0e1526;padding:6px}
+aside .f{display:block;width:100%;text-align:left;border:0;background:none;padding:7px 6px;border-radius:6px;font:12px ui-monospace,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-height:32px;direction:ltr}
+aside .f.on{background:#1e2b47;color:var(--cy)}
+.edit{flex:1;display:flex;flex-direction:column;min-width:0}
+#fileName{font:12px ui-monospace,monospace;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;direction:ltr}
+#editor{flex:1;resize:none;border:0;outline:0;background:#080d19;color:#dbe7ff;padding:12px;font:13px/1.6 ui-monospace,Menlo,monospace;direction:ltr;text-align:left;tab-size:2;white-space:pre;overflow:auto}
+#console{height:30vh;min-height:120px;overflow:auto;background:#05080f;border-top:1px solid var(--line);padding:10px 12px;font:12px/1.6 ui-monospace,monospace;direction:ltr;text-align:left}
+.line{padding:2px 0;white-space:pre-wrap;word-break:break-word}
+.line.err{color:var(--red)}.line.sys{color:var(--mut)}.line.ok{color:var(--gr)}.line.warn{color:#fbbf24}
+#env{font-size:11px;color:var(--mut);flex:1;min-width:80px}
+#preview{width:100%;height:32vh;border:0;border-top:1px solid var(--line);background:#fff}
+.empty{padding:12px;color:var(--mut);font-size:11px}
+@media(max-width:520px){aside{width:100px}button{padding:7px 8px;font-size:12px}}
+</style>
+</head>
+<body>
+<header><b>NONONICK <span>Forge</span></b><span class="tag">LITE · local engine</span></header>
+<main>
+  <div class="bar">
+    <select id="project"></select>
+    <button id="newProject">＋</button>
+    <button id="importBtn">ZIP</button>
+    <span id="env">local</span>
+    <button id="run" class="primary">Run</button>
+  </div>
+  <div class="split">
+    <aside id="files"></aside>
+    <div class="edit">
+      <div class="bar" style="border:0;padding:6px 10px">
+        <span id="fileName">—</span>
+        <button id="save">Save</button>
+        <button id="newFile">New</button>
+      </div>
+      <textarea id="editor" spellcheck="false" placeholder="// code here"></textarea>
+      <div id="console"></div>
+      <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const filesEl = $("#files"), editor = $("#editor"), consoleEl = $("#console"), preview = $("#preview"), fileName = $("#fileName"), projectSel = $("#project");
+let projects = JSON.parse(localStorage.getItem("nn_projects") || "{}");
+let current = null, currentFile = null;
+function log(msg, cls="sys"){ const d=document.createElement("div"); d.className="line "+cls; d.textContent=msg; consoleEl.appendChild(d); consoleEl.scrollTop=consoleEl.scrollHeight; }
+function saveProjects(){ localStorage.setItem("nn_projects", JSON.stringify(projects)); }
+function renderProjects(){
+  projectSel.innerHTML = "";
+  Object.keys(projects).forEach(k => {
+    const o = document.createElement("option"); o.value=k; o.textContent=k; projectSel.appendChild(o);
+  });
+  if(!Object.keys(projects).length){ projects["demo"] = {"index.html":"<!DOCTYPE html>\n<html><body><h1>Hello</h1></body></html>"}; saveProjects(); renderProjects(); }
+  projectSel.value = current || Object.keys(projects)[0];
+  current = projectSel.value;
+  renderFiles();
+}
+function renderFiles(){
+  filesEl.innerHTML = "";
+  const p = projects[current] || {};
+  Object.keys(p).forEach(name => {
+    const b = document.createElement("button");
+    b.className = "f" + (name===currentFile?" on":"");
+    b.textContent = name;
+    b.onclick = () => { currentFile=name; editor.value=p[name]||""; fileName.textContent=name; renderFiles(); };
+    filesEl.appendChild(b);
+  });
+  if(!currentFile || !p[currentFile]){ currentFile = Object.keys(p)[0] || null; if(currentFile){ editor.value=p[currentFile]; fileName.textContent=currentFile; } }
+}
+projectSel.onchange = () => { current = projectSel.value; currentFile=null; renderFiles(); };
+$("#newProject").onclick = () => {
+  const n = prompt("Project name");
+  if(!n || projects[n]) return;
+  projects[n] = {"index.html":"<!DOCTYPE html>\n<html><body><h1>"+n+"</h1></body></html>"};
+  saveProjects(); current=n; renderProjects();
+};
+$("#save").onclick = () => {
+  if(!current || !currentFile) return;
+  projects[current][currentFile] = editor.value;
+  saveProjects(); log("Saved "+currentFile, "ok");
+};
+$("#newFile").onclick = () => {
+  const n = prompt("File name", "script.js");
+  if(!n || !current) return;
+  projects[current][n] = "";
+  currentFile = n; editor.value=""; fileName.textContent=n;
+  saveProjects(); renderFiles();
+};
+$("#run").onclick = () => {
+  consoleEl.innerHTML = "";
+  log("Running...", "sys");
+  try {
+    const html = projects[current]["index.html"] || editor.value;
+    preview.srcdoc = html;
+    log("Preview updated", "ok");
+  } catch(e){ log(String(e), "err"); }
+};
+renderProjects();
+</script>
+</body>
+</html>
