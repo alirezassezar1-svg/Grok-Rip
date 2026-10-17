@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Grok-Rip | Icons Pack</title>
+<meta name="theme-color" content="#0a0a0a">
+<style>
+:root {
+  --phone-w: 390px;
+  --phone-h: 844px;
+  --radius: 55px;
+  --island-w: 126px;
+  --island-h: 37px;
+  --safe-top: 59px;
+  --accent: #a78bfa;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body { height:100%; overflow:hidden; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",system-ui,sans-serif; background:#050505; color:#fff; }
+body {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139,92,246,.25), transparent),
+              radial-gradient(ellipse 60% 40% at 80% 100%, rgba(59,130,246,.15), transparent), #050505;
+  padding:20px;
+}
+.brand { position:fixed; top:24px; left:0; right:0; text-align:center; z-index:10; pointer-events:none; }
+.brand h1 { font-size:1.5rem; font-weight:700; letter-spacing:-.5px; background:linear-gradient(135deg,#fff,#c4b5fd,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.brand p { font-size:.85rem; color:rgba(255,255,255,.5); margin-top:4px; }
+.back-btn {
+  position:fixed; bottom:28px; left:50%; transform:translateX(-50%); z-index:10;
+  display:flex; align-items:center; gap:8px; padding:12px 22px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:999px;
+  color:#fff; font-size:.9rem; font-weight:500; text-decoration:none; backdrop-filter:blur(20px);
+}
+.back-btn:hover { background:rgba(255,255,255,.14); border-color:rgba(167,139,250,.5); }
+.phone {
+  position:relative; width:var(--phone-w); height:var(--phone-h); background:#1c1c1e; border-radius:var(--radius);
+  box-shadow:0 0 0 3px #2c2c2e, 0 0 0 6px #3a3a3c, 0 25px 80px rgba(0,0,0,.7), 0 0 120px rgba(139,92,246,.15);
+  overflow:hidden; flex-shrink:0;
+}
+.btn-vol-up, .btn-vol-down, .btn-power, .btn-action { position:absolute; background:#2c2c2e; border-radius:4px; z-index:5; }
+.btn-vol-up { left:-3px; top:160px; width:4px; height:32px; }
+.btn-vol-down { left:-3px; top:210px; width:4px; height:55px; }
+.btn-action { left:-3px; top:120px; width:4px; height:28px; }
+.btn-power { right:-3px; top:180px; width:4px; height:90px; }
+.screen {
+  position:absolute; inset:12px; border-radius:44px; overflow:hidden;
+  background: linear-gradient(165deg, #0c0c12 0%, #16162a 45%, #0a1520 100%);
+}
+.dynamic-island {
+  position:absolute; top:11px; left:50%; transform:translateX(-50%);
+  width:var(--island-w); height:var(--island-h); background:#000; border-radius:20px; z-index:50;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.island-cam { width:10px; height:10px; border-radius:50%; background:#1a1a1a; box-shadow:inset 0 0 2px #333; }
+.island-dot { width:6px; height:6px; border-radius:50%; background:#0a0a0a; }
+.status-bar {
+  position:absolute; top:0; left:0; right:0; height:var(--safe-top); padding:14px 28px 0;
+  display:flex; justify-content:space-between; align-items:flex-start; z-index:40; font-size:15px; font-weight:600;
+}
+.status-left { padding-left:6px; }
+.status-right { display:flex; align-items:center; gap:5px; padding-right:6px; font-size:13px; }
+.status-right svg { width:18px; height:12px; }
+.home-content {
+  position:absolute; top:var(--safe-top); left:0; right:0; bottom:34px;
+  overflow-y:auto; -webkit-overflow-scrolling:touch; padding:8px 18px 20px;
+}
+.page-title { font-size:26px; font-weight:700; letter-spacing:-.4px; margin-bottom:6px; }
+.page-sub { font-size:13px; color:rgba(255,255,255,.45); margin-bottom:18px; }
+.section-label {
+  font-size:13px; font-weight:600; color:rgba(255,255,255,.5); margin:16px 0 10px; padding:0 2px;
+  text-transform:uppercase; letter-spacing:.06em;
+}
+.icon-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:18px 10px; margin-bottom:8px;
+}
+.app-icon {
+  display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer;
+  transition:transform .15s;
+}
+.app-icon:active { transform:scale(.88); }
+.icon-box {
+  width:62px; height:62px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+  font-size:28px; box-shadow:0 4px 16px rgba(0,0,0,.35); position:relative; overflow:hidden;
+}
+.icon-box::after {
+  content:''; position:absolute; inset:0; border-radius:16px;
+  background:linear-gradient(145deg, rgba(255,255,255,.18), transparent 50%);
+  pointer-events:none;
+}
+.icon-name { font-size:11px; text-align:center; color:rgba(255,255,255,.85); max-width:70px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.folder {
+  width:62px; height:62px; border-radius:16px;
+  background:rgba(255,255,255,.12); backdrop-filter:blur(12px);
+  display:grid; grid-template-columns:1fr 1fr; gap:3px; padding:7px;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+.folder-mini {
+  border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px;
+  background:rgba(255,255,255,.15);
+}
+.dock {
+  position:absolute; bottom:28px; left:16px; right:16px; height:86px;
+  background:rgba(255,255,255,.14); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px);
+  border-radius:28px; border:1px solid rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:space-around; padding:0 12px; z-index:30;
+}
+.dock .app-icon { gap:0; }
+.dock .icon-box { width:54px; height:54px; font-size:24px; border-radius:14px; }
+.dock .icon-name { display:none; }
+.home-indicator {
+  position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+  width:134px; height:5px; background:rgba(255,255,255,.35); border-radius:3px; z-index:50;
+}
+.g1 { background:linear-gradient(135deg,#667eea,#764ba2); }
+.g2 { background:linear-gradient(135deg,#f093fb,#f5576c); }
+.g3 { background:linear-gradient(135deg,#4facfe,#00f2fe); }
+.g4 { background:linear-gradient(135deg,#43e97b,#38f9d7); }
+.g5 { background:linear-gradient(135deg,#fa709a,#fee140); }
+.g6 { background:linear-gradient(135deg,#a18cd1,#fbc2eb); }
+.g7 { background:linear-gradient(135deg,#ff9a9e,#fecfef); }
+.g8 { background:linear-gradient(135deg,#ffecd2,#fcb69f); }
+.g9 { background:linear-gradient(135deg,#a1c4fd,#c2e9fb); }
+.g10{ background:linear-gradient(135deg,#d4fc79,#96e6a1); }
+.g11{ background:linear-gradient(135deg,#84fab0,#8fd3f4); }
+.g12{ background:linear-gradient(135deg,#cfd9df,#e2ebf0); color:#333; }
+.g13{ background:linear-gradient(135deg,#f77062,#fe5196); }
+.g14{ background:linear-gradient(135deg,#00c6fb,#005bea); }
+.g15{ background:linear-gradient(135deg,#fbc2eb,#a6c1ee); }
+.g16{ background:linear-gradient(135deg,#fdcbf1,#e6dee9); color:#333; }
+
+@media (max-width:430px) {
+  body { padding:0; background:#000; }
+  .brand, .back-btn { display:none; }
+  .phone { width:100vw; height:100vh; border-radius:0; box-shadow:none; }
+  .screen { inset:0; border-radius:0; }
+  .btn-vol-up, .btn-vol-down, .btn-power, .btn-action { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="brand"><h1>Grok-Rip Icons</h1><p>iPhone 16 Pro Max Icon Pack</p></div>
+
+<div class="phone">
+  <div class="btn-action"></div>
+  <div class="btn-vol-up"></div>
+  <div class="btn-vol-down"></div>
+  <div class="btn-power"></div>
+  <div class="screen">
+    <div class="dynamic-island"><div class="island-cam"></div><div class="island-dot"></div></div>
+    <div class="status-bar">
+      <div class="status-left" id="time">11:58</div>
+      <div class="status-right">
+        <svg viewBox="0 0 18 12"><rect x="0" y="3" width="3" height="6" rx="1" fill="currentColor"/><rect x="4.5" y="2" width="3" height="8" rx="1" fill="currentColor"/><rect x="9" y="0.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="13.5" y="1.5" width="3" height="9" rx="1" fill="currentColor" opacity=".4"/></svg>
+        <svg viewBox="0 0 16 12"><path d="M8 2.5c2.2 0 4.1 1.1 5.3 2.7l-1.3 1.1A5.5 5.5 0 0 0 8 4.5c-1.6 0-3 .7-4 1.8L2.7 5.2A7.2 7.2 0 0 1 8 2.5z" fill="currentColor"/><path d="M8 5.5c1.3 0 2.4.6 3.1 1.5l-1.3 1.1A2.5 2.5 0 0 0 8 7c-.7 0-1.3.3-1.8.8L4.9 6.7A4 4 0 0 1 8 5.5z" fill="currentColor"/><circle cx="8" cy="10" r="1.2" fill="currentColor"/></svg>
+        <span>67</span>
+      </div>
+    </div>
+
+    <div class="home-content">
+      <div class="page-title">Icon Pack</div>
+      <div class="page-sub">Nononick · Grok · Tools</div>
+
+      <div class="section-label">ابزارهای اصلی</div>
+      <div class="icon-grid">
+        <div class="app-icon" onclick="location.href='./index.html'">
+          <div class="icon-box g1">🏠</div>
+          <div class="icon-name">Home</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./widgets.html'">
+          <div class="icon-box g3">🧩</div>
+          <div class="icon-name">Widgets</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./NONONICK-DIGITAL-ENGINE.html'">
+          <div class="icon-box g2">⚡</div>
+          <div class="icon-name">Engine</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./osgrok.html'">
+          <div class="icon-box g4">🖥️</div>
+          <div class="icon-name">Admin OS</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./Auto_Grok.html'">
+          <div class="icon-box g5">🚀</div>
+          <div class="icon-name">Factory</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./mohta-qwen.html'">
+          <div class="icon-box g6">📝</div>
+          <div class="icon-name">Studio</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./goft.html'">
+          <div class="icon-box g13">💬</div>
+          <div class="icon-name">Chat</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./deepo.html'">
+          <div class="icon-box g14">🌌</div>
+          <div class="icon-name">Deepo</div>
+        </div>
+      </div>
+
+      <div class="section-label">پوشه‌ها</div>
+      <div class="icon-grid">
+        <div class="app-icon">
+          <div class="folder">
+            <div class="folder-mini g1">📄</div>
+            <div class="folder-mini g3">✏️</div>
+            <div class="folder-mini g5">📊</div>
+            <div class="folder-mini g2">🎨</div>
+          </div>
+          <div class="icon-name">Editors</div>
+        </div>
+        <div class="app-icon">
+          <div class="folder">
+            <div class="folder-mini g4">🌐</div>
+            <div class="folder-mini g6">🔍</div>
+            <div class="folder-mini g9">📈</div>
+            <div class="folder-mini g11">🔗</div>
+          </div>
+          <div class="icon-name">Web Tools</div>
+        </div>
+        <div class="app-icon">
+          <div class="folder">
+            <div class="folder-mini g7">🤖</div>
+            <div class="folder-mini g10">🧠</div>
+            <div class="folder-mini g15">✨</div>
+            <div class="folder-mini g8">🎯</div>
+          </div>
+          <div class="icon-name">AI Pack</div>
+        </div>
+        <div class="app-icon">
+          <div class="folder">
+            <div class="folder-mini g12">⚙️</div>
+            <div class="folder-mini g16">🔧</div>
+            <div class="folder-mini g1">📦</div>
+            <div class="folder-mini g3">🗂️</div>
+          </div>
+          <div class="icon-name">System</div>
+        </div>
+      </div>
+
+      <div class="section-label">بیشتر</div>
+      <div class="icon-grid">
+        <div class="app-icon" onclick="location.href='./note.html'">
+          <div class="icon-box g9">📒</div>
+          <div class="icon-name">Notes</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./v3.html'">
+          <div class="icon-box g10">🔮</div>
+          <div class="icon-name">V3</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./ad.html'">
+          <div class="icon-box g11">📢</div>
+          <div class="icon-name">Ads</div>
+        </div>
+        <div class="app-icon" onclick="location.href='./real.html'">
+          <div class="icon-box g15">💎</div>
+          <div class="icon-name">Real</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock">
+      <div class="app-icon" onclick="location.href='./index.html'"><div class="icon-box g1">🏠</div></div>
+      <div class="app-icon" onclick="location.href='./widgets.html'"><div class="icon-box g3">🧩</div></div>
+      <div class="app-icon" onclick="location.href='./NONONICK-DIGITAL-ENGINE.html'"><div class="icon-box g2">⚡</div></div>
+      <div class="app-icon" onclick="location.href='./osgrok.html'"><div class="icon-box g4">🖥️</div></div>
+    </div>
+
+    <div class="home-indicator"></div>
+  </div>
+</div>
+
+<a class="back-btn" href="./index.html">← بازگشت به Home</a>
+
+<script>
+function updateTime(){
+  document.getElementById('time').textContent = new Date().toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit',hour12:false});
+}
+updateTime();
+setInterval(updateTime,30000);
+</script>
+</body>
+</html>
